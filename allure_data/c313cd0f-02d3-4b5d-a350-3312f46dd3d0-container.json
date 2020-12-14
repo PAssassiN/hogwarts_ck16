@@ -1,0 +1,26 @@
+{
+  "uuid": "61e7a780-1f02-42c1-b62d-24225b843b76",
+  "children": [
+    "355e3614-4ea1-4a4d-8095-2938d72910be",
+    "7af789ca-d9d7-4742-b866-a5ea321fd7fe",
+    "d45e74c3-9aaf-4873-9a54-9094772af684"
+  ],
+  "befores": [
+    {
+      "name": "myfixture",
+      "status": "passed",
+      "start": 1607932666649,
+      "stop": 1607932666650
+    }
+  ],
+  "afters": [
+    {
+      "name": "myfixture::0",
+      "status": "passed",
+      "start": 1607932666716,
+      "stop": 1607932666716
+    }
+  ],
+  "start": 1607932666649,
+  "stop": 1607932666716
+}

@@ -1,30 +1,39 @@
 import pytest
 from pythoncode.calculator import Calculator
+import yaml
+
+
+def get_data():
+    with open("./data.yml") as f:
+        datas = yaml.safe_load(f)
+        add_data = datas["add"]
+        sub_data = datas["sub"]
+        mul_data = datas["mul"]
+        div_data = datas["div"]
+        add_ids = datas["myid"]
+        return [add_data, sub_data, mul_data, div_data, add_ids]
 
 
 class TestCal:
-
     def setup_class(self):
         self.cal = Calculator()
-        print("开始计算")
 
-    def teardown_class(self):
-        print("计算结束")
-
-    @pytest.mark.parametrize("a, b, expect", [(3, 5, 8), (-1, -2, -3), (100, 200, 300)], ids=["int", "minus", "bigint"])
-    def test_add(self, a, b, expect):
+    @pytest.mark.run(order=1)
+    @pytest.mark.parametrize("a, b, expect", get_data()[0], ids=get_data()[4])
+    def test_add(self, a, b, expect, myfixture):
         assert expect == self.cal.add(a, b)
 
-    @pytest.mark.parametrize("a, b, expect", [(8, 5, 3), (-1, -2, 1), (300, 200, 100)], ids=["int", "minus", "bigint"])
+    @pytest.mark.run(order=3)
+    @pytest.mark.parametrize("a, b, expect", get_data()[1], ids=get_data()[4])
     def test_sub(self, a, b, expect):
         assert expect == self.cal.sub(a, b)
 
-    @pytest.mark.parametrize("a, b, expect", [(3, 8, 24), (-3, -2, 6), (300, 200, 60000)],
-                             ids=["int", "minus", "bigint"])
+    @pytest.mark.run(order=4)
+    @pytest.mark.parametrize("a, b, expect", get_data()[2], ids=get_data()[4])
     def test_mul(self, a, b, expect):
         assert expect == self.cal.mul(a, b)
 
-    @pytest.mark.parametrize("a, b, expect", [(25, 5, 5), (-6, -2, 3), (300, 50, 6)],
-                             ids=["int", "minus", "bigint"])
+    @pytest.mark.run(order=2)
+    @pytest.mark.parametrize("a, b, expect", get_data()[3], ids=get_data()[4])
     def test_div(self, a, b, expect):
         assert expect == self.cal.div(a, b)

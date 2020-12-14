@@ -1,0 +1,35 @@
+{
+  "uuid": "a8b0a22a-8aac-4f3d-9794-1835af72d0cd",
+  "children": [
+    "355e3614-4ea1-4a4d-8095-2938d72910be",
+    "7af789ca-d9d7-4742-b866-a5ea321fd7fe",
+    "d45e74c3-9aaf-4873-9a54-9094772af684",
+    "475b5a12-13c5-4291-915b-73867a7f4da2",
+    "38d69809-d600-4838-9cb3-5efaea55a606",
+    "32ffd7b0-4779-4eee-909c-b19b11d26186",
+    "bc44448a-9163-4417-9147-91d5f90442ae",
+    "383e1b2d-fcec-41ea-a423-ff1793a13d66",
+    "2ca3f171-b534-4cce-84b9-794166e63420",
+    "bfac6250-d53d-45b7-a464-8828d0b1e754",
+    "c654f5a4-5896-49a4-98fb-2f0f69642f56",
+    "be607816-1e7d-43ac-9bc8-f6fa158c46af"
+  ],
+  "befores": [
+    {
+      "name": "_Class__pytest_setup_class",
+      "status": "passed",
+      "start": 1607932666650,
+      "stop": 1607932666650
+    }
+  ],
+  "afters": [
+    {
+      "name": "_Class__pytest_setup_class::0",
+      "status": "passed",
+      "start": 1607932666715,
+      "stop": 1607932666715
+    }
+  ],
+  "start": 1607932666650,
+  "stop": 1607932666715
+}
