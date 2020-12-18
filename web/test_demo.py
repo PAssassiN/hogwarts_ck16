@@ -133,7 +133,7 @@ def test_add_member():
     driver.find_element_by_xpath('//*[@class="member_edit_joinCheckboxCnt member_edit_sec"]//input').click()
     # # 保存
     driver.find_element_by_xpath('//div//a[text()="保存"]').click()
-    # 断言
+    # 断言，通过在memberSearchInput输入此成员名字，有结果显示在searchResult上，来判断添加成功
     driver.find_element_by_xpath('//*[@id="memberSearchInput"]').send_keys('王五')
     expected = driver.find_element_by_xpath(
         '//*[@id="search_member_list"]//span[@class="ww_searchResult_title_peopleName"]').text
