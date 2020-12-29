@@ -37,4 +37,9 @@ class AddMember(BasePage):
         acctid_error_message = self.wait_click(self._location_acctid_error_message).text
         phone_error_message = self.wait_click(self._location_phone_error_message).text
         error_list = [acctid_error_message, phone_error_message]
+        # 方法2
+        # res = self.finds(By.CSS_SELECTOR, ".ww_inputWithTips_tips")
+        # print(res)
+        # error_list = [i.text for i in res]
+        # print(error_list)
         return error_list
