@@ -95,7 +95,7 @@ def test_get_cookie():
     driver.get('https://work.weixin.qq.com/wework_admin/frame#contacts')
     cookie = driver.get_cookies()
     # 获取到的cookie写入文件
-    with open('./data.yml', 'w', encoding='UTF-8') as f:
+    with open('../test_web_weixin/testcases/data.yml', 'w', encoding='UTF-8') as f:
         yaml.dump(cookie, f)
 
 
@@ -106,7 +106,7 @@ def test_login():
     # 打开扫码登陆页
     driver.get('https://work.weixin.qq.com/wework_admin/loginpage_wx?')
     # 打开获取到的cookie文件
-    with open('./data.yml', encoding='UTF-8') as f:
+    with open('../test_web_weixin/testcases/data.yml', encoding='UTF-8') as f:
         yaml_data = yaml.safe_load(f)
         for cookie in yaml_data:
             driver.add_cookie(cookie)
