@@ -42,4 +42,7 @@ class AddMember(BasePage):
         # print(res)
         # error_list = [i.text for i in res]
         # print(error_list)
+        # 方法3（参考下列写法，用上显示等待来finds）
+        #  self.wait_click(self._location_add_member_button)
+        # self.find(self._location_add_member_button).click()
         return error_list

@@ -3,7 +3,6 @@ import pytest
 
 
 class TestAddMember:
-
     def setup_class(self):
         self.main = MainPage()
 
@@ -29,7 +28,10 @@ class TestAddMember:
         assert '王五' in res
 
     def teardown(self):
+        # 此处有BUG，部分用例没有back_main()下的第二个driver元素
         self.main.back_main()
+        pass
 
     def teardown_class(self):
         self.main.quit()
+        pass

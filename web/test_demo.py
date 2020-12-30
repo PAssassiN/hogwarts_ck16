@@ -29,59 +29,9 @@ def test_demo():
     driver.implicitly_wait(5)
     driver.get('https://work.weixin.qq.com/wework_admin/frame#index')
     driver.find_element_by_id('menu_contacts').click()
-    print(driver.get_cookies())
-
-
-# 使用cookie登陆
-def test_cookie():
-    driver = webdriver.Chrome()
-    driver.implicitly_wait(3)
-    # 1、先打开扫码登陆页
-    driver.get('https://work.weixin.qq.com/wework_admin/loginpage_wx?')
-    cookie = [
-        {'domain': '.qq.com', 'expiry': 1608226531, 'httpOnly': False, 'name': '_gat', 'path': '/', 'secure': False,
-         'value': '1'},
-        {'domain': '.work.weixin.qq.com', 'httpOnly': False, 'name': 'wwrtx.vid', 'path': '/', 'secure': False,
-         'value': '1688850459807483'},
-        {'domain': '.work.weixin.qq.com', 'httpOnly': False, 'name': 'wxpay.vid', 'path': '/', 'secure': False,
-         'value': '1688850459807483'},
-        {'domain': '.work.weixin.qq.com', 'httpOnly': False, 'name': 'wxpay.corpid', 'path': '/', 'secure': False,
-         'value': '1970325136204626'},
-        {'domain': '.work.weixin.qq.com', 'httpOnly': False, 'name': 'wwrtx.d2st', 'path': '/', 'secure': False,
-         'value': 'a6954282'},
-        {'domain': '.work.weixin.qq.com', 'httpOnly': True, 'name': 'wwrtx.ltype', 'path': '/', 'secure': False,
-         'value': '1'},
-        {'domain': '.qq.com', 'expiry': 2147385600, 'httpOnly': False, 'name': 'pgv_pvid', 'path': '/', 'secure': False,
-         'value': '194241423'},
-        {'domain': '.work.weixin.qq.com', 'httpOnly': True, 'name': 'wwrtx.ref', 'path': '/', 'secure': False,
-         'value': 'direct'},
-        {'domain': '.work.weixin.qq.com', 'httpOnly': True, 'name': 'wwrtx.refid', 'path': '/', 'secure': False,
-         'value': '21878874791757435'},
-        {'domain': '.qq.com', 'expiry': 1608312770, 'httpOnly': False, 'name': '_gid', 'path': '/', 'secure': False,
-         'value': 'GA1.2.102647311.1608226158'},
-        {'domain': 'work.weixin.qq.com', 'expiry': 1608257692, 'httpOnly': True, 'name': 'ww_rtkey', 'path': '/',
-         'secure': False, 'value': '87r0jbr'},
-        {'domain': '.work.weixin.qq.com', 'httpOnly': True, 'name': 'wwrtx.vst', 'path': '/', 'secure': False,
-         'value': 'zZmnpsxgptZDXU1YNimKuXzwAv09h3da3tT_D11J4_CZ4GXlR2n3_6D1en4cpSvrgsuR1hEs6JIgPq_uvEbX5c5R418J4g5cp70NnCynjbUP3Q-s6lPDszvEvHHGQTX0jmjZCZHJ2tm08iLOlq4p8a93aIsntpRRxjxQ5P_kvnRDr2kPsuMbIDIjyCG-JVk1bJqw4up4hzHzyg473tJRnqVNc_gYZaQWSObiBUD_6EQIFfWvNNpNmXjv3i_wsIy79FdCBVEw-fmAatTj6O-iCQ'},
-        {'domain': '.work.weixin.qq.com', 'expiry': 1610818521, 'httpOnly': False, 'name': 'wwrtx.i18n_lan',
-         'path': '/', 'secure': False, 'value': 'zh'},
-        {'domain': '.qq.com', 'expiry': 1671298370, 'httpOnly': False, 'name': '_ga', 'path': '/', 'secure': False,
-         'value': 'GA1.2.253628043.1608226158'},
-        {'domain': '.work.weixin.qq.com', 'expiry': 1639762156, 'httpOnly': False, 'name': 'wwrtx.c_gdpr', 'path': '/',
-         'secure': False, 'value': '0'},
-        {'domain': '.work.weixin.qq.com', 'httpOnly': True, 'name': 'wwrtx.sid', 'path': '/', 'secure': False,
-         'value': 'OQGV9yhwIczt85TiRvtCFCQKgC6ufaxgtOXY-6qruFR-8KHxD7IfCOxK1zXpo7ak'},
-        {'domain': '.qq.com', 'httpOnly': False, 'name': 'pgv_info', 'path': '/', 'secure': False,
-         'value': 'ssid=s4332547674'}]
-    # 2、设置cookie
-    for i in cookie:
-        driver.add_cookie(i)
-    # 3、打开目的页面
-    driver.get('https://work.weixin.qq.com/wework_admin/frame#index')
-    driver.find_element_by_id('menu_contacts').click()
-    sleep(3)
-    # 4、关闭页面
-    driver.quit()
+    department_list_xpath = '//ul[@class="jstree-children"]'
+    department_list = driver.find_element_by_xpath(department_list_xpath).text
+    print(department_list)
 
 
 # 复用浏览器 + 获取保存cookie
@@ -95,7 +45,7 @@ def test_get_cookie():
     driver.get('https://work.weixin.qq.com/wework_admin/frame#contacts')
     cookie = driver.get_cookies()
     # 获取到的cookie写入文件
-    with open('../test_web_weixin/testcases/data.yml', 'w', encoding='UTF-8') as f:
+    with open('./data.yml', 'w', encoding='UTF-8') as f:
         yaml.dump(cookie, f)
 
 
