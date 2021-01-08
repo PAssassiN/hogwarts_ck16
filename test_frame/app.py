@@ -21,7 +21,7 @@ class App(BasePage):
                 "settings[waitForIdleTimeout]": 0
             }
             self.driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_caps)
-            self.driver.implicitly_wait(5)
+            self.driver.implicitly_wait(15)
         else:
             self.driver.launch_app()
 

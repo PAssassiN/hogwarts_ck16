@@ -22,7 +22,7 @@ class BasePage:
         return self.driver.find_elements(by, locator)
 
     def find_and_click(self, by, locator):
-        return self.driver.find_element(by, locator).click()
+        self.find(by, locator).click()
 
     # 两种滑动屏幕的方式
     def scroll_find(self, text):
