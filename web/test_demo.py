@@ -20,7 +20,7 @@ class TestDemo():
         self.driver.find_element_by_link_text('霍格沃兹测试学院 – 测试开发工程师的黄埔军校').click()
         # sleep(3)
 
-
+'''
 def test_demo():
     option = webdriver.ChromeOptions()
     # 设置debug的地址
@@ -32,8 +32,9 @@ def test_demo():
     department_list_xpath = '//ul[@class="jstree-children"]'
     department_list = driver.find_element_by_xpath(department_list_xpath).text
     print(department_list)
+'''
 
-
+'''
 # 复用浏览器 + 获取保存cookie
 def test_get_cookie():
     option = webdriver.ChromeOptions()
@@ -47,8 +48,9 @@ def test_get_cookie():
     # 获取到的cookie写入文件
     with open('./data.yml', 'w', encoding='UTF-8') as f:
         yaml.dump(cookie, f)
+'''
 
-
+'''
 # 使用上面方法获得的cookie进行登陆，此方法则不需要复用浏览器
 def test_login():
     driver = webdriver.Chrome()
@@ -63,7 +65,9 @@ def test_login():
     driver.get('https://work.weixin.qq.com/wework_admin/frame#index')
     sleep(2)
 
+'''
 
+'''
 def test_add_member():
     option = webdriver.ChromeOptions()
     # 设置debug的地址
@@ -88,3 +92,5 @@ def test_add_member():
     expected = driver.find_element_by_xpath(
         '//*[@id="search_member_list"]//span[@class="ww_searchResult_title_peopleName"]').text
     assert '王五' == expected
+'''
+
